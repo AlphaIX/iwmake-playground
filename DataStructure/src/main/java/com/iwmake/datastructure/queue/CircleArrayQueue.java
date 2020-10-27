@@ -4,25 +4,25 @@ import java.util.Scanner;
 
 /**
  * 数组模拟队列
- * 该版本存在问题：数组不能重复使用，全部取出后，依然不能添加新元素
+ * 使用环形队列，解决版本1问题
  * @author Dylan
  * @since 2020-10-27
  */
-public class ArrayQueue {
+public class CircleArrayQueue {
     public static void main(String[] args) {
-        Queue queue = new Queue(3);
+        CircleQueue queue = new CircleQueue(4); // 设置为4，有效数据为3，有效数据=maxSize-1
         char key = ' ';//接收用户输入
         Scanner scanner = new Scanner(System.in);
         boolean loop = true;
 
-        while (loop){
+        while (loop) {
             System.out.println("s(show)显示队列");
             System.out.println("e(exit)退出程序");
             System.out.println("a(add)数据添加到队列");
             System.out.println("g(get)从队列取出数据");
             System.out.println("p(peek)查看队列头数据");
             key = scanner.next().charAt(0);
-            switch (key){
+            switch (key) {
                 case 's':
                     queue.showQueue();
                     break;
@@ -35,7 +35,7 @@ public class ArrayQueue {
                     try {
                         int res = queue.get();
                         System.out.printf("取出的数据是%d\n", res);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -43,7 +43,7 @@ public class ArrayQueue {
                     try {
                         int res = queue.peek();
                         System.out.printf("队列头数据是%d\n", res);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -59,22 +59,22 @@ public class ArrayQueue {
     }
 }
 
-class Queue {
+class CircleQueue {
     private int maxSize; //队列大小
-    private int front; // 队列头,指向队列头的前一个位置
-    private int rear; // 队列尾,指向队列尾部，即队列最后一个数据
+    private int front; // 队列头
+    private int rear; // 队列尾
     private int[] arr; // 用数组模拟队列，存数据
 
-    public Queue(int maxSize) {
+    public CircleQueue(int maxSize) {
         this.maxSize = maxSize;
         arr = new int[maxSize];
-        front = -1; // 指向队列头的前一个位置
-        rear = -1; // 指向队列尾部，即队列最后一个数据
+        front = 0; // 指向队列头，默认0
+        rear = 0; // 指向队列尾部后面的一个位置，初始为0
     }
 
     // 判断队列是否满
     public boolean isFull() {
-        return rear == maxSize - 1;
+        return (rear + 1) % maxSize == front;
     }
 
     // 判断队列是否空
@@ -88,8 +88,10 @@ class Queue {
             System.out.println("队列已满！！！");
             return;
         }
-        rear++;
+        //rear++ version 1
         arr[rear] = n;
+        // 将rear后移，必须考虑取模
+        rear = (rear + 1) % maxSize;
     }
 
     // 出队列
@@ -97,8 +99,15 @@ class Queue {
         if (isEmpty()) {
             throw new RuntimeException("队列为空！不能取数据");
         }
-        front++;
-        return arr[front];
+        //front++; version 1
+        //return arr[front]; version1
+        //v2
+        //1.先将front对应的值保存到一个临时变量
+        //2.将front后移，考虑取模
+        //3.将临时变量返回
+        int value = arr[front];
+        front = (front + 1) % maxSize;
+        return value;
     }
 
     // 显示队列所有数据
@@ -107,8 +116,14 @@ class Queue {
             System.out.println("队列空 没有数据");
             return;
         }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.printf("arr[%d]=%d\n", i, arr[i]);
+        /** version 1
+         for (int i = 0; i < arr.length; i++) {
+         System.out.printf("arr[%d]=%d\n", i, arr[i]);
+         }*/
+        // v2 从front遍历，遍历多少个元素
+        // 求出当前队列有效数据个数
+        for (int i = front; i < front + size(); i++) {
+            System.out.printf("arr[%d]=%d\n", i % maxSize, arr[i % maxSize]);
         }
     }
 
@@ -117,7 +132,14 @@ class Queue {
         if (isEmpty()) {
             throw new RuntimeException("队列为空！没有数据");
         }
-        return arr[front + 1];
+        //return arr[front + 1]; version 1
+        return arr[front];
+    }
+
+    // 求出当前队列有效数据个数
+    public int size() {
+        // rear=1 front=0, maxSize=3 size=1
+        return (rear + maxSize - front) % maxSize;// 好好想想为什么这样写
     }
 
 }
