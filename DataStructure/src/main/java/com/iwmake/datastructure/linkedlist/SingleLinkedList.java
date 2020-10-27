@@ -37,9 +37,9 @@ public class SingleLinkedList {
         // 测试删除节点
         System.out.println("测试删除节点");
         linkedList.delete(1);
-        linkedList.delete(4);
-        linkedList.delete(2);
         linkedList.list();
+
+        System.out.println("有效节点个数：" + linkedList.length(linkedList.getHead()));
 
     }
 }
@@ -48,6 +48,10 @@ public class SingleLinkedList {
 class LinkedList {
     // 初始化一个头节点，头节点不要动，不存放具体数据
     private HeroNode head = new HeroNode(0, "", "");
+
+    public HeroNode getHead() {
+        return head;
+    }
 
     /**
      * 添加节点，不考虑英雄编号问题
@@ -176,6 +180,23 @@ class LinkedList {
             temp = temp.next;
         }
 
+    }
+
+    /**
+     * 获取链表节点个数，（如果带头节点，排除头节点）
+     * @return
+     */
+    public int length(HeroNode head) {
+        if (head.next == null) {
+            return 0;
+        }
+        int len = 0;
+        HeroNode current = head.next;
+        while (current != null) {
+            len++;
+            current = current.next;
+        }
+        return len;
     }
 }
 
