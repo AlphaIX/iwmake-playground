@@ -3,18 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.iwmake</groupId>
+    <parent>
+        <artifactId>iwmake-playground</artifactId>
+        <groupId>com.iwmake</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <artifactId>playground-datastructure</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>playground-datastructure</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
 
 
 </project>
