@@ -12,6 +12,7 @@
         <module>JUC</module>
         <module>IO</module>
         <module>DataStructure</module>
+        <module>Algorithm</module>
     </modules>
 
     <name>iwmake-playground</name>
