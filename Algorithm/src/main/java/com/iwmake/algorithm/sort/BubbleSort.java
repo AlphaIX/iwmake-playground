@@ -21,7 +21,7 @@ public class BubbleSort {
         // 测试80000个数排序效率 v1和v2
         int[] arr = new int[80000];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random()*800000);
+            arr[i] = (int) (Math.random()*8000000);
         }
         //System.out.println(Arrays.toString(arr));
         long s1 = System.currentTimeMillis();
