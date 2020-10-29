@@ -61,7 +61,7 @@ public class InsertSort {
     }
 
     /**
-     * 插入排序，推导过程
+     * 插入排序，推导过程 ,重点怎么移位的while部分
      * @param arr
      */
     public static void sortDetail(int[] arr) {
