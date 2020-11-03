@@ -7,16 +7,16 @@ package com.iwmake.algorithm.common;
  */
 public class DynamicKnapsackProblem {
     public static void main(String[] args) {
-        int[] w = {1,4,3};// 物品重量
-        int[] val = {1500,3000,2000};//物品价值
+        int[] w = {1, 4, 3};// 物品重量
+        int[] val = {1500, 3000, 2000};//物品价值
         int m = 4;//背包容量
         int n = val.length;// 物品个数
 
         // 创建二维数组
         // v[i][j] 表示在前i个物品中能够装入背包容量为j的 背包中的最大价值
-        int[][] v = new int[n+1][m+1];
+        int[][] v = new int[n + 1][m + 1];
         // 为了记录放入商品的情况，我们定一个二维数组
-        int[][] path = new int[n+1][m+1];
+        int[][] path = new int[n + 1][m + 1];
 
         //初始化第一行，第一列
         for (int i = 0; i < v.length; i++) {
@@ -27,20 +27,21 @@ public class DynamicKnapsackProblem {
         }
 
         // 根据前面的公式 动态规划处理
-        for (int i = 1; i < v.length ; i++) { // 不处理第一行
+        for (int i = 1; i < v.length; i++) { // 不处理第一行
             for (int j = 1; j < v[0].length; j++) { // 不处理第一列
                 // 公式
-                if(w[i-1]>j){ //注意：i从1开始，故-1
-                    v[i][j] = v[i-1][j];
-                }else {
+                if (w[i - 1] > j) { //注意：i从1开始，故-1
+                    v[i][j] = v[i - 1][j];
+                } else {
                     // i从1开始需要-1
                     //v[i][j] = Math.max(v[i-1][j], val[i-1] + v[i-1][j-w[i-1]]);
-                    // 为了记录背包放入情况，不能简单使用上面的公式
-                    if(v[i-1][j] < val[i-1] + v[i-1][j-w[i-1]]){
-                        v[i][j] = val[i-1] + v[i-1][j-w[i-1]];
+                    // 为了记录背包放入情况，不能简单使用上面的公式， 需要if-else体现规则
+                    if (v[i - 1][j] < val[i - 1] + v[i - 1][j - w[i - 1]]) {
+                        v[i][j] = val[i - 1] + v[i - 1][j - w[i - 1]];
+                        // 把当前情况记录到path
                         path[i][j] = 1;
-                    }else {
-                        v[i][j] = v[i-1][j];
+                    } else {
+                        v[i][j] = v[i - 1][j];
                     }
                 }
             }
@@ -54,15 +55,25 @@ public class DynamicKnapsackProblem {
             }
             System.out.println();
         }
-        
-        // 遍历path
-        System.out.println("===================");
-        for (int i = 0; i < path.length; i++) {
-            for (int j = 0; j < path[i].length; j++) {
-                if(path[i][j] ==1){
-                    System.out.printf("第%d个商品放入背包\n",i);
-                }
+
+        // 遍历path，这样会把所有的放入情况都得到
+//        System.out.println("===================");
+//        for (int i = 0; i < path.length; i++) {
+//            for (int j = 0; j < path[i].length; j++) {
+//                if(path[i][j] ==1){
+//                    System.out.printf("第%d个商品放入背包\n",i);
+//                }
+//            }
+//        }
+
+        int i = path.length - 1; // 行最大下标
+        int j = path[0].length - 1;//列最大下标
+        while (i > 0 && j > 0) {
+            if (path[i][j] == 1) {
+                System.out.printf("第%d个商品放入背包\n", i);
+                j -= w[i - 1];
             }
+            i--;
         }
 
     }
