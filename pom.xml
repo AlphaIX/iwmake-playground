@@ -13,6 +13,7 @@
         <module>IO</module>
         <module>DataStructure</module>
         <module>Algorithm</module>
+        <module>DesignPattern</module>
     </modules>
 
     <name>iwmake-playground</name>
