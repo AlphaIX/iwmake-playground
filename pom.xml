@@ -14,7 +14,7 @@
         <module>DataStructure</module>
         <module>Algorithm</module>
         <module>DesignPattern</module>
-        <module>Integration</module>
+        <module>Framework</module>
     </modules>
 
     <name>iwmake-playground</name>
