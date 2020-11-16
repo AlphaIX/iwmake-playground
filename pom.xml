@@ -15,6 +15,7 @@
         <module>Algorithm</module>
         <module>DesignPattern</module>
         <module>Framework</module>
+        <module>Boot</module>
     </modules>
 
     <name>iwmake-playground</name>
