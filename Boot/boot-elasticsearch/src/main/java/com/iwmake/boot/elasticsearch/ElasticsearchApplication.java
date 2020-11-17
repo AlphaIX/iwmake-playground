@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * SpringBoot与Elasticsearch6.x整合
- * 部分示例代码在test下
+ * 查看测试包下 ESTest
+ * @see {@link com.iwmake.boot.elasticsearch.ESTest}
  * @author Dylan
  * @since 2020-11-16
  */
