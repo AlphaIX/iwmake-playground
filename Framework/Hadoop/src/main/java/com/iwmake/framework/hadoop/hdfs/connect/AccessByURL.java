@@ -24,7 +24,7 @@ public class AccessByURL {
         // 2、获取hdfs文件的输入流
         InputStream inputStream = new URL("hdfs://192.168.56.120:8020/a.txt").openStream();
         // 3、获取本地文件的输出流
-        FileOutputStream outputStream = new FileOutputStream(new File("hello2.txt"));
+        FileOutputStream outputStream = new FileOutputStream(new File("output/hello2.txt"));
         // 4、实现文件的拷贝
         IOUtils.copy(inputStream, outputStream);
         // 5、关闭流

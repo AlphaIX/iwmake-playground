@@ -80,7 +80,7 @@ public class CRUD {
         FSDataInputStream inputStream = fileSystem.open(new Path("/a.txt"));
 
         // 3获取本地输出流
-        FileOutputStream outputStream = new FileOutputStream("a_1.txt");
+        FileOutputStream outputStream = new FileOutputStream("output/a_1.txt");
 
         // 4文件拷贝
         IOUtils.copy(inputStream, outputStream);
@@ -101,7 +101,7 @@ public class CRUD {
                 "root" // 伪装成root用户，以取得相应文件操作权限
                 );
 
-        fileSystem.copyToLocalFile(new Path("/a.txt"), new Path("a_5.txt"));
+        fileSystem.copyToLocalFile(new Path("/a.txt"), new Path("output/a_5.txt"));
 
         fileSystem.close();
     }
