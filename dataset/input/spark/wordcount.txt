@@ -1,3 +1,0 @@
-hadoop spark flume
-spark sqoop
-hadoop hello

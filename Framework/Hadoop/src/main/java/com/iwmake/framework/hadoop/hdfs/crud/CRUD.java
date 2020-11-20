@@ -127,13 +127,13 @@ public class CRUD {
         FileSystem fileSystem = FileSystem.get(new URI("hdfs://192.168.56.120:8020"), new Configuration(),"root");
 
         // 2 获取hdfs大文件的输出流
-        FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("/big_txt.txt"));
+        FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("/beijing_pm_data.csv"));
 
         // 3 获取一个本地FileSystem
         LocalFileSystem localFileSystem = FileSystem.getLocal(new Configuration());
 
         // 4 获取本地文件夹下所有文件详情数组
-        FileStatus[] fileStatus = localFileSystem.listStatus(new Path("input"));
+        FileStatus[] fileStatus = localFileSystem.listStatus(new Path("input/bj"));
 
         // 5 遍历每个文件，获取每个文件的输入流
         for(FileStatus fStatus: fileStatus){
