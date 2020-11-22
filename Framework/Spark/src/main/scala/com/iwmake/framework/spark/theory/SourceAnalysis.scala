@@ -35,4 +35,20 @@ class SourceAnalysis {
     sc.stop()
   }
 
+  @Test
+  def narrowDependency(): Unit = {
+    // 需求：求得两个RDD之间的笛卡尔积
+    // 生成RDD
+    var conf = new SparkConf().setMaster("local[6]").setAppName("cartesian")
+    var sc = new SparkContext(conf)
+    var rdd1 = sc.parallelize(Seq(1,2,3,4,5,6))
+    var rdd2 = sc.parallelize(Seq("a","b","c"))
+
+    val resRDD = rdd1.cartesian(rdd2)
+
+    resRDD.collect().foreach(println(_))
+
+    sc.stop()
+  }
+
 }
