@@ -1,4 +1,4 @@
-package com.iwmake.framework.spark.cache
+package com.iwmake.framework.spark.rdd.cache
 
 import org.apache.commons.lang3.StringUtils
 import org.apache.spark.storage.StorageLevel

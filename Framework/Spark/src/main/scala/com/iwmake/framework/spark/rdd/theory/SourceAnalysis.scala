@@ -1,4 +1,4 @@
-package com.iwmake.framework.spark.theory
+package com.iwmake.framework.spark.rdd.theory
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.junit.Test

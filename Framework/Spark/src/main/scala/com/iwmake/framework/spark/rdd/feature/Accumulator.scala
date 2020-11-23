@@ -1,4 +1,4 @@
-package com.iwmake.framework.spark.feature
+package com.iwmake.framework.spark.rdd.feature
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.util.AccumulatorV2

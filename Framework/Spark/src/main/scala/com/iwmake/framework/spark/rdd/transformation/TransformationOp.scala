@@ -1,4 +1,4 @@
-package com.iwmake.framework.spark.transformation
+package com.iwmake.framework.spark.rdd.transformation
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}

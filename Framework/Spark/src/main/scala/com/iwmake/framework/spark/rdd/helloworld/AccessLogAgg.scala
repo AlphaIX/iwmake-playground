@@ -1,4 +1,4 @@
-package com.iwmake.framework.spark.helloworld
+package com.iwmake.framework.spark.rdd.helloworld
 
 import org.apache.commons.lang3.StringUtils
 import org.apache.spark.{SparkConf, SparkContext}

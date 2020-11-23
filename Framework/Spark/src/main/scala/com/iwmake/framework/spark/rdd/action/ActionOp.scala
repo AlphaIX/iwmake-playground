@@ -1,4 +1,4 @@
-package com.iwmake.framework.spark.action
+package com.iwmake.framework.spark.rdd.action
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.junit.Test
