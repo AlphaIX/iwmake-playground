@@ -35,5 +35,4 @@ build/
 .DS_Store
 *.zip
 *.crc
-*.txt
 *.parquet
