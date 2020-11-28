@@ -12,7 +12,7 @@
     <artifactId>playground-framework</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>hadoop</module>
+        <module>Hadoop</module>
         <module>Spark</module>
     </modules>
 

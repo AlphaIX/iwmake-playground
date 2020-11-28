@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spark-demo</artifactId>
+    <artifactId>demo-spark</artifactId>
 
     <properties>
         <scala.version>2.11.8</scala.version>
