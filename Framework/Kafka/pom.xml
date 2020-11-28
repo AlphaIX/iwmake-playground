@@ -3,19 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>iwmake-playground</artifactId>
+        <artifactId>playground-framework</artifactId>
         <groupId>com.iwmake</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>playground-framework</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>Hadoop</module>
-        <module>Spark</module>
-        <module>Kafka</module>
-    </modules>
+    <artifactId>demo-kafka</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
