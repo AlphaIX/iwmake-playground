@@ -1,4 +1,4 @@
-package com.iwmake.framework.flink.batch
+package com.iwmake.framework.flink.batch.source
 
 import org.apache.flink.api.scala.ExecutionEnvironment
 
