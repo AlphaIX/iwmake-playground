@@ -15,6 +15,7 @@
         <module>Hadoop</module>
         <module>Spark</module>
         <module>Kafka</module>
+        <module>Flink</module>
     </modules>
 
 
