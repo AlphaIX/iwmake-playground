@@ -9,5 +9,7 @@
 - Framework模块，一些框架
     - Hadoop，Hadoop相关
     - Spark，Spark相关
+    - Kafka, kafka相关
+    - Flink, Flink相关
 - IO模块，io相关demo
 - JUC模块，java并发demo
