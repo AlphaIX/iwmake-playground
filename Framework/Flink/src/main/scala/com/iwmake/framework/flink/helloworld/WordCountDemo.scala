@@ -1,8 +1,7 @@
-package com.iwmake.framework.flink.batch
+package com.iwmake.framework.flink.helloworld
 
 import org.apache.flink.api.scala.ExecutionEnvironment
 import org.apache.flink.core.fs.FileSystem
-
 
 /**
  * 使用flink批处理进行单词计数
