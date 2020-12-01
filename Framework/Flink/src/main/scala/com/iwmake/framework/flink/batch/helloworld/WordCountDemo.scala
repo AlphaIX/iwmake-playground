@@ -1,4 +1,4 @@
-package com.iwmake.framework.flink.helloworld
+package com.iwmake.framework.flink.batch.helloworld
 
 import org.apache.flink.api.scala.ExecutionEnvironment
 import org.apache.flink.core.fs.FileSystem
