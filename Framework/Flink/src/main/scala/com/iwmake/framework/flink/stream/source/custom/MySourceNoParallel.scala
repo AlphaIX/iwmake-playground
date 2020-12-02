@@ -17,6 +17,7 @@ object MySourceNoParallel {
     // 2. 添加自定义数据源
     import org.apache.flink.api.scala._
     val myDS: DataStream[Long] = env.addSource(new MyNoParallelSourceFunction)
+        //.setParallelism(2) 报错
 
     // 打印数据
     myDS.print()
